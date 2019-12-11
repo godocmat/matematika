@@ -1,8 +1,13 @@
+import { DerivaciaComponent } from './derivacia/derivacia.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '', component: DerivaciaComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
