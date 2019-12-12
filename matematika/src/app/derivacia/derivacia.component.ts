@@ -23,6 +23,7 @@ export class DerivaciaComponent implements OnInit {
 
   funkcia = 'x^2+y^2';
   derivaciax;
+  derviaciax;
   derivaciay;
   bod1 = '1';
   bod2 = '2';
@@ -68,6 +69,7 @@ export class DerivaciaComponent implements OnInit {
 
     // vypocitame hodnoty gradientu, dosadime bod x,y do parcialnych derivacii
     this.gradient1 = math.simplify(this.derivaciax).evaluate({x: this.bod1, y: this.bod2}).toString();
+
     console.log('prvy gradient ' + this.gradient1);
     this.gradient2 = math.simplify(this.derivaciay).evaluate({x: this.bod1, y: this.bod2}).toString();
     console.log('druhy gradient ' + this.gradient2);
