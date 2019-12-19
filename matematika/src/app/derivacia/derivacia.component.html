@@ -1,25 +1,57 @@
-Zadaj funkciu:
-<input type="text" pInputText placeholder="funkcia" [(ngModel)]="funkcia">
+<div>
+    <p-card class="inputcard">
+    Zadaj funkciu:
+    <input type="text" pInputText placeholder="funkcia" pTooltip="Odporúčame zadávať všetky spoločné výrazy do zátvoriek
 
-Zadaj x<sub>0</sub>
-<input type="text" pInputText placeholder="funkcia" [(ngModel)]="bod1">
+    pre mocninu použite znak ^, napr x na druhú je x^2
 
-Zadaj y<sub>0</sub>
-<input type="text" pInputText placeholder="funkcia" [(ngModel)]="bod2">
+    pre odmocninu použite mocninu v zlomku, napr tretia odmocnina z x je x^(1/3)
 
-Zadaj v<sub>0</sub>
-<input type="text" pInputText placeholder="funkcia" [(ngModel)]="vektor1">
+    pre logaritmus použite log, napr log(x)
 
-zadaj v<sub>1</sub>
-<input type="text" pInputText placeholder="funkcia" [(ngModel)]="vektor2">
-&nbsp;
-<button pButton type="button" label="Vypocitaj" (click)="vypocitaj()"></button>
+    goniometrické funkcie majú ten istý zápis, napr cos(3x)" [(ngModel)]="funkcia">
+    
+    Zadaj x<sub>0</sub>:
+    <input type="text" pInputText placeholder="funkcia" [(ngModel)]="bod1">
+    
+    Zadaj y<sub>0</sub>:
+    <input type="text" pInputText placeholder="funkcia" [(ngModel)]="bod2">
+    
+    Zadaj v<sub>x</sub>:
+    <input type="text" pInputText placeholder="funkcia" [(ngModel)]="vektor1">
+    
+    Zadaj v<sub>y</sub>:
+    <input type="text" pInputText placeholder="funkcia" [(ngModel)]="vektor2">
+    &nbsp;
+    <button pButton type="button" label="Vypočítaj" (click)="vypocitaj()"></button>
+</p-card>
+</div>
+
 
 <br>
-vysledok = {{vysledok}}
+<div *ngIf="vysledok">
+    <p-card class="vysledokcard">
+        Ako prvé si vypočítame parciálne derivácie
+        <br>
+        Výsledok parciálnej derivácie podľa premennej X je {{derivaciax}}
+        <br>
+        Výsledok parciálnej derivácie podľa premennej Y je {{derivaciay}} 
+        <br>
+        V ďalšom kroku si dosadíme súradnice nášho bodu do parciálnych derivácii a vypočítame gradient funkcie
+        <br>
+        Gradient našej funkcie je grad f(A) = ({{gradient1}},{{gradient2}})
+        <br>
+        V nasledujúcom bode si znormujeme zadaný vektor
+        <br>
+        Normovaný vektor <b><i>|v|</i></b> = ({{normal1}},{{normal2}})
+        <br>
+        Nakoniec vynásobíme gradient s normovaným vektorom a dostaneme výsledok {{vysledok}}
+    </p-card>
+   
+</div>
 
-<iframe width="100%" height="100%" frameBorder="0" [src]="urlSafe"></iframe>
+<!-- <iframe width="100%" height="100%" frameBorder="0" [src]="urlSafe"></iframe> -->
 
 
-<!-- <iframe width="100%" height="100%" frameBorder="0" [src]="urlSafeDeri"></iframe> -->
+<iframe scrolling="no" width="100%" height="100%" style="margin-top: 36px" frameBorder="0" [src]="urlSafeDeri"></iframe>
 
